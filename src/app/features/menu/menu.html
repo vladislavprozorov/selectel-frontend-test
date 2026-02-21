@@ -1,26 +1,29 @@
-<section class="menu">
+<section class="menu" role="main" aria-labelledby="menu-title">
   <header class="menu-header">
-    <h1>Меню услуг</h1>
+    <h1 id="menu-title">Меню услуг</h1>
 
     @if (selectedCount() > 0) {
-      <div class="summary">
-        <p><strong>Выбрано:</strong> {{ selectedTitles() }}</p>
-        <p><strong>Количество:</strong> {{ selectedCount() }}</p>
-        <p><strong>Сумма:</strong> {{ totalPrice() }} ₽</p>
+      <div class="summary" role="status" aria-live="polite">
+        <p><strong>Выбрано:</strong> <span aria-label="Выбранные услуги">{{ selectedTitles() }}</span></p>
+        <p><strong>Количество:</strong> <span aria-label="Количество выбранных услуг">{{ selectedCount() }}</span></p>
+        <p><strong>Сумма:</strong> <span aria-label="Общая стоимость">{{ totalPrice() }} ₽</span></p>
       </div>
     } @else {
-      <p>Ничего не выбрано</p>
+      <p role="status" aria-live="polite">Ничего не выбрано</p>
     }
   </header>
 
-  <ul>
+  <ul role="list" aria-label="Список доступных услуг">
     @for (item of items(); track item.id) {
-      <li [class.active]="item.selected">
-        <label>
+      <li [class.active]="item.selected" role="listitem">
+        <label [attr.for]="'checkbox-' + item.id">
           <input
+            [id]="'checkbox-' + item.id"
             type="checkbox"
             [checked]="item.selected"
             (change)="toggleItem(item.id)"
+            [attr.aria-label]="'Выбрать услугу: ' + item.title + ', стоимость ' + item.price + ' рублей'"
+            [attr.aria-checked]="item.selected"
           />
           {{ item.title }} — {{ item.price }} ₽
         </label>
