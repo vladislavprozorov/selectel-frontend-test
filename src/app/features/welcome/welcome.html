@@ -1,14 +1,36 @@
 <section class="welcome" role="main" aria-labelledby="welcome-title">
-  <div class="content">
-    <h1 id="welcome-title">Добро пожаловать!</h1>
-    <p>Это тестовое приложение для демонстрации работы с Angular 19</p>
-    <a 
-      routerLink="/menu" 
-      class="button"
-      role="button"
-      aria-label="Перейти к странице меню услуг"
-    >
-      Перейти к меню
-    </a>
-  </div>
+	<div class="welcome__content">
+	
+		<h1 id="welcome-title" class="welcome__title">Добро пожаловать!</h1>
+		<p class="welcome__description">
+			Тестовое задание для Selectel от 21.02.2026 <br/>
+      Выполнил: Владислав Прозоров
+		</p>
+		<a
+			routerLink="/menu"
+			class="welcome__button"
+			role="button"
+			aria-label="Перейти к странице меню услуг"
+		>
+			Перейти к меню
+			<span class="welcome__button-icon">→</span>
+		</a>
+	</div>
+	<div class="welcome__features">
+		<div class="feature-card">
+
+			<h3 class="feature-card__title">Signals API</h3>
+			<p class="feature-card__text">Реактивное управление состоянием</p>
+		</div>
+		<div class="feature-card">
+		
+			<h3 class="feature-card__title">Design System</h3>
+			<p class="feature-card__text">Современный UI с токенами</p>
+		</div>
+		<div class="feature-card">
+
+			<h3 class="feature-card__title">Accessibility</h3>
+			<p class="feature-card__text">WCAG 2.1 AA совместимость</p>
+		</div>
+	</div>
 </section>
