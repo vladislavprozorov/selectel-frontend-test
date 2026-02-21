@@ -1,43 +1,57 @@
 {
-  "name": "selectel-test",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
-  },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
-  },
-  "private": true,
-  "packageManager": "npm@10.9.4",
-  "dependencies": {
-    "@angular/common": "^21.1.0",
-    "@angular/compiler": "^21.1.0",
-    "@angular/core": "^21.1.0",
-    "@angular/forms": "^21.1.0",
-    "@angular/platform-browser": "^21.1.0",
-    "@angular/router": "^21.1.0",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
-  },
-  "devDependencies": {
-    "@angular/build": "^21.1.4",
-    "@angular/cli": "^21.1.4",
-    "@angular/compiler-cli": "^21.1.0",
-    "jsdom": "^27.1.0",
-    "typescript": "~5.9.2",
-    "vitest": "^4.0.8"
-  }
+	"name": "selectel-test",
+	"version": "0.0.0",
+	"scripts": {
+		"ng": "ng",
+		"start": "ng serve",
+		"build": "ng build",
+		"watch": "ng build --watch --configuration development",
+		"test": "ng test",
+		"prepare": "husky",
+		"lint": "biome check src",
+		"lint:fix": "biome check src --write",
+		"format": "biome format src --write"
+	},
+	"prettier": {
+		"printWidth": 100,
+		"singleQuote": true,
+		"overrides": [
+			{
+				"files": "*.html",
+				"options": {
+					"parser": "angular"
+				}
+			}
+		]
+	},
+	"private": true,
+	"packageManager": "npm@10.9.4",
+	"dependencies": {
+		"@angular/common": "^21.1.0",
+		"@angular/compiler": "^21.1.0",
+		"@angular/core": "^21.1.0",
+		"@angular/forms": "^21.1.0",
+		"@angular/platform-browser": "^21.1.0",
+		"@angular/router": "^21.1.0",
+		"rxjs": "~7.8.0",
+		"tslib": "^2.3.0"
+	},
+	"devDependencies": {
+		"@angular/build": "^21.1.4",
+		"@angular/cli": "^21.1.4",
+		"@angular/compiler-cli": "^21.1.0",
+		"@biomejs/biome": "^2.4.4",
+		"@commitlint/cli": "^20.4.2",
+		"@commitlint/config-conventional": "^20.4.2",
+		"husky": "^9.1.7",
+		"jsdom": "^27.1.0",
+		"lint-staged": "^16.2.7",
+		"typescript": "~5.9.2",
+		"vitest": "^4.0.8"
+	},
+	"lint-staged": {
+		"*.{ts,html,css,json}": [
+			"biome check --write"
+		]
+	}
 }

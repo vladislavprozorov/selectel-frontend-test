@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-menu',
-  imports: [],
-  templateUrl: './menu.html',
-  styleUrl: './menu.css',
+	selector: "app-menu",
+	imports: [],
+	templateUrl: "./menu.html",
+	styleUrl: "./menu.css",
 })
-export class Menu {
-
-}
+export class Menu {}
