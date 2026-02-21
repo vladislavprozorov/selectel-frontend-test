@@ -1,0 +1,29 @@
+<header class="app-header">
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/welcome">
+        <svg  width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <title>тестовое</title>
+          <rect width="32" height="32" rx="8" fill="url(#gradient)"/>
+          <path d="M16 8L8 16L16 24L24 16L16 8Z" fill="white"/>
+          <defs>
+            <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="var(--color-primary)"/>
+              <stop offset="100%" stop-color="var(--color-secondary)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>Тестовое</span>
+      </a>
+    </div>
+    
+    <nav class="nav">
+      <a routerLink="/welcome" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Главная
+      </a>
+      <a routerLink="/menu" routerLinkActive="active">
+        Меню услуг
+      </a>
+    </nav>
+  </div>
+</header>
