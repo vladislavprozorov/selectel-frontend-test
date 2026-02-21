@@ -1,4 +1,4 @@
-import type { MenuItem } from "../model/menu-item.model";
+import type { MenuItem } from "../models/menu-item.model";
 
 export const MENU_ITEMS: MenuItem[] = [
 	{ id: 1, title: "VPS Small", price: 350, selected: false },

@@ -1,0 +1,98 @@
+<section class="menu" role="main" aria-labelledby="menu-title">
+	<header class="menu-header">
+		<div class="header-content">
+			<h1 id="menu-title">Меню услуг</h1>
+			<p class="subtitle">Выберите необходимые услуги для вашего проекта</p>
+		</div>
+
+		@if (selectedCount() > 0) {
+			<div class="summary" role="status" aria-live="polite" aria-atomic="true">
+				<div class="summary-info">
+					<div class="summary-item">
+						<span class="label">Выбрано:</span>
+						<span class="value" aria-label="Выбранные услуги">{{ selectedTitles() }}</span>
+					</div>
+					<div class="summary-stats">
+						<div class="stat">
+							<span class="stat-label">Количество</span>
+							<span 
+								class="stat-value" 
+								aria-label="Количество выбранных услуг"
+								aria-live="polite"
+							>
+								{{ selectedCount() }}
+							</span>
+						</div>
+						<div class="stat">
+							<span class="stat-label">Сумма</span>
+							<span 
+								class="stat-value price" 
+								aria-label="Общая стоимость выбранных услуг"
+								aria-live="polite"
+								aria-atomic="true"
+							>
+								{{ formattedTotalPrice() }}
+							</span>
+						</div>
+					</div>
+				</div>
+				<button 
+					class="btn-clear" 
+					(click)="clearSelection()"
+					aria-label="Очистить все выбранные услуги"
+					type="button"
+				>
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+						<path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+					</svg>
+					<span>Очистить</span>
+				</button>
+			</div>
+		} @else {
+			<div class="empty-state" role="status" aria-live="polite">
+				<svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+					<circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" opacity="0.3"/>
+					<path d="M32 20V32M32 32L40 40M32 32L24 40" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+				</svg>
+				<p>Ничего не выбрано</p>
+				<span class="hint">Выберите услуги из списка ниже</span>
+				<span class="hint-keyboard" aria-label="Подсказка для клавиатуры">Нажмите <kbd>ESC</kbd> для очистки выбора</span>
+			</div>
+		}
+	</header>
+
+	<ul role="list" aria-label="Список доступных услуг">
+		@for (item of items(); track item.id) {
+			<li [class.active]="item.selected" role="listitem">
+				<label [attr.for]="'checkbox-' + item.id">
+					<div class="checkbox-wrapper">
+						<input
+							[id]="'checkbox-' + item.id"
+							type="checkbox"
+							[checked]="item.selected"
+							(change)="toggleItem(item.id)"
+							[attr.aria-label]="'Выбрать услугу: ' + item.title + ', стоимость ' + formatPrice(item.price)"
+							[attr.aria-checked]="item.selected"
+						/>
+						<span class="checkmark" aria-hidden="true">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" role="img" aria-label="Галочка">
+								<title>Галочка</title>
+								<path d="M3 8L6.5 11.5L13 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</span>
+					</div>
+					<div class="item-content">
+						<span class="item-title">{{ item.title }}</span>
+						<span class="item-price" aria-label="Стоимость">{{ formatPrice(item.price) }}</span>
+					</div>
+				</label>
+			</li>
+		}
+	</ul>
+
+	<div class="keyboard-hints" role="complementary" aria-label="Горячие клавиши">
+		<p class="hint-text">
+			<kbd>ESC</kbd> — Очистить выбор
+		</p>
+	</div>
+</section>
