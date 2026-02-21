@@ -1,0 +1,15 @@
+.welcome {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	padding: 40px;
+}
+
+.button {
+	width: fit-content;
+	padding: 10px 16px;
+	border-radius: 8px;
+	background: black;
+	color: white;
+	text-decoration: none;
+}
