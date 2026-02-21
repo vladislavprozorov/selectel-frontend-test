@@ -18,4 +18,11 @@ export const routes: Routes = [
 		loadComponent: () =>
 			import("@features/menu/menu.component").then(({ Menu }) => Menu),
 	},
+	{
+		path: "**",
+		loadComponent: () =>
+			import("@features/not-found/not-found.components").then(
+				({ NotFoundComponent }) => NotFoundComponent,
+			),
+	},
 ];
