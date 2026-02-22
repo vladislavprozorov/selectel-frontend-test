@@ -16,7 +16,9 @@ export const routes: Routes = [
 	{
 		path: "menu",
 		loadComponent: () =>
-			import("@features/menu/menu.component").then(({ Menu }) => Menu),
+			import("@features/menu/menu.component").then(
+				({ MenuComponent }) => MenuComponent,
+			),
 	},
 	{
 		path: "**",
