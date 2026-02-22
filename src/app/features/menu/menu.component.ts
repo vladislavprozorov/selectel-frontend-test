@@ -1,4 +1,10 @@
-import { Component, computed, signal } from "@angular/core";
+import {
+	ChangeDetectionStrategy,
+	Component,
+	computed,
+	signal,
+} from "@angular/core";
+import { fadeIn, scaleIn, slideInLeft } from "@shared/animations/animations";
 import { MENU_ITEMS } from "./data/menu.data";
 import type { MenuItem } from "./model/menu-item.model";
 
@@ -7,19 +13,23 @@ import type { MenuItem } from "./model/menu-item.model";
 	selector: "app-menu",
 	templateUrl: "./menu.html",
 	styleUrl: "./menu.css",
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	animations: [fadeIn, slideInLeft, scaleIn],
 })
 export class Menu {
-	items = signal<MenuItem[]>(MENU_ITEMS);
+	readonly items = signal<MenuItem[]>(MENU_ITEMS);
 
-	selectedItems = computed(() => this.items().filter((item) => item.selected));
+	readonly selectedItems = computed(() =>
+		this.items().filter((item) => item.selected),
+	);
 
-	selectedCount = computed(() => this.selectedItems().length);
+	readonly selectedCount = computed(() => this.selectedItems().length);
 
-	totalPrice = computed(() =>
+	readonly totalPrice = computed(() =>
 		this.selectedItems().reduce((sum, item) => sum + item.price, 0),
 	);
 
-	selectedTitles = computed(() =>
+	readonly selectedTitles = computed(() =>
 		this.selectedItems()
 			.map((item) => item.title)
 			.join(", "),
