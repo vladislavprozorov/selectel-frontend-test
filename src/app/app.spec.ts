@@ -1,10 +1,12 @@
 import { TestBed } from "@angular/core/testing";
+import { RouterModule } from "@angular/router";
 import { App } from "./app";
+import { HeaderComponent } from "./layout/header/header.component";
 
 describe("App", () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [App],
+			imports: [App, RouterModule.forRoot([])],
 		}).compileComponents();
 	});
 
@@ -14,12 +16,34 @@ describe("App", () => {
 		expect(app).toBeTruthy();
 	});
 
-	it("should render title", async () => {
+	it("should have title signal", () => {
 		const fixture = TestBed.createComponent(App);
-		await fixture.whenStable();
+		const app = fixture.componentInstance;
+
+		expect(app["title"]()).toBe("selectel-test");
+	});
+
+	it("should render header component", () => {
+		const fixture = TestBed.createComponent(App);
+		fixture.detectChanges();
 		const compiled = fixture.nativeElement as HTMLElement;
-		expect(compiled.querySelector("h1")?.textContent).toContain(
-			"Hello, selectel-test",
-		);
+
+		expect(compiled.querySelector("app-header")).toBeTruthy();
+	});
+
+	it("should render router outlet", () => {
+		const fixture = TestBed.createComponent(App);
+		fixture.detectChanges();
+		const compiled = fixture.nativeElement as HTMLElement;
+
+		expect(compiled.querySelector("router-outlet")).toBeTruthy();
+	});
+
+	it("should have main container with correct class", () => {
+		const fixture = TestBed.createComponent(App);
+		fixture.detectChanges();
+		const compiled = fixture.nativeElement as HTMLElement;
+
+		expect(compiled.querySelector("main.app-main")).toBeTruthy();
 	});
 });

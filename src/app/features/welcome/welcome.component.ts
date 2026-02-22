@@ -7,8 +7,5 @@ import { RouterLink } from "@angular/router";
 	imports: [RouterLink],
 	templateUrl: "./welcome.html",
 	styleUrl: "./welcome.css",
-	host: {
-		"[@fadeIn]": "",
-	},
 })
 export class Welcome {}
