@@ -1,12 +1,14 @@
-<section class="welcome">
-
-
-  <h1>Тестовое задание</h1>
-   <p>Мини-приложение, реализованное на Angular 19.</p>
-
-  <a routerLink="/menu" class="button">
-    Перейти к меню →
-  </a>
-
-  
+<section class="welcome" role="main" aria-labelledby="welcome-title">
+  <div class="content">
+    <h1 id="welcome-title">Добро пожаловать!</h1>
+    <p>Это тестовое приложение для демонстрации работы с Angular 19</p>
+    <a 
+      routerLink="/menu" 
+      class="button"
+      role="button"
+      aria-label="Перейти к странице меню услуг"
+    >
+      Перейти к меню
+    </a>
+  </div>
 </section>
