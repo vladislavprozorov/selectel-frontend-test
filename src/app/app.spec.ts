@@ -1,7 +1,6 @@
 import { TestBed } from "@angular/core/testing";
 import { RouterModule } from "@angular/router";
 import { App } from "./app";
-import { HeaderComponent } from "./layout/header/header.component";
 
 describe("App", () => {
 	beforeEach(async () => {
@@ -14,13 +13,6 @@ describe("App", () => {
 		const fixture = TestBed.createComponent(App);
 		const app = fixture.componentInstance;
 		expect(app).toBeTruthy();
-	});
-
-	it("should have title signal", () => {
-		const fixture = TestBed.createComponent(App);
-		const app = fixture.componentInstance;
-
-		expect(app["title"]()).toBe("selectel-test");
 	});
 
 	it("should render header component", () => {

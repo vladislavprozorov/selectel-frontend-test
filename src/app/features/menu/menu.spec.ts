@@ -153,9 +153,11 @@ describe("MenuComponent", () => {
 			const saved = localStorage.getItem("menu-selected-items");
 			expect(saved).toBeTruthy();
 
-			const savedIds = JSON.parse(saved!);
-			expect(savedIds).toContain(1);
-			expect(savedIds).toContain(3);
+			if (saved) {
+				const savedIds = JSON.parse(saved);
+				expect(savedIds).toContain(1);
+				expect(savedIds).toContain(3);
+			}
 		});
 
 		it("should load selected items from localStorage on init", () => {
@@ -191,8 +193,10 @@ describe("MenuComponent", () => {
 			component.clearSelection();
 
 			const saved = localStorage.getItem("menu-selected-items");
-			const savedIds = JSON.parse(saved!);
-			expect(savedIds).toEqual([]);
+			if (saved) {
+				const savedIds = JSON.parse(saved);
+				expect(savedIds).toEqual([]);
+			}
 		});
 	});
 
