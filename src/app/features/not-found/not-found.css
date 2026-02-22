@@ -4,7 +4,7 @@
 	justify-content: center;
 	min-height: 100vh;
 	text-align: center;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: #000000;
 	color: white;
 
 	.content {
@@ -14,33 +14,36 @@
 			font-size: 8rem;
 			margin: 0;
 			font-weight: bold;
-			opacity: 0.8;
+			color: #ffffff;
 		}
 
 		h2 {
 			font-size: 2rem;
 			margin: 1rem 0;
+			color: #ffffff;
 		}
 
 		p {
 			font-size: 1.2rem;
 			margin: 1rem 0 2rem;
-			opacity: 0.9;
+			color: #bdbdbd;
 		}
 
 		.button {
 			display: inline-block;
 			padding: 1rem 2rem;
-			background: white;
-			color: #667eea;
+			background: #ffffff;
+			color: #000000;
 			text-decoration: none;
 			border-radius: 8px;
 			font-weight: 600;
-			transition: transform 0.2s;
+			transition: all 0.2s;
+			border: 2px solid #ffffff;
 
 			&:hover {
+				background: #000000;
+				color: #ffffff;
 				transform: translateY(-2px);
-				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 			}
 		}
 	}

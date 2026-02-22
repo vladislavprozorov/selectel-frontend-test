@@ -1,6 +1,6 @@
 /**
  * Menu Component Styles
- * Using Design System tokens for consistency
+ * Монохромный дизайн в стиле Яндекс Практикум
  */
 
 :host {
@@ -29,16 +29,12 @@
 	}
 
 	&-header {
-		background: linear-gradient(
-135deg,
-var(--color-primary-500),
-var(--color-secondary-500)
-);
+		background: #000000;
 		border-radius: var(--radius-lg);
 		padding: var(--spacing-lg) var(--spacing-xl);
 		color: white;
 		margin-bottom: var(--spacing-lg);
-		box-shadow: var(--shadow-lg);
+		border: 2px solid #ffffff;
 
 		.header-content {
 			margin-bottom: var(--spacing-md);
@@ -52,18 +48,17 @@ var(--color-secondary-500)
 
 			.subtitle {
 				margin: 0;
-				opacity: 0.9;
+				color: #bdbdbd;
 				font-size: var(--font-size-base);
 			}
 		}
 	}
 
 	.summary {
-		background: rgba(255, 255, 255, 0.15);
-		backdrop-filter: blur(10px);
+		background: rgba(255, 255, 255, 0.1);
 		border-radius: var(--radius-md);
 		padding: var(--spacing-md) var(--spacing-lg);
-		border: 1px solid rgba(255, 255, 255, 0.2);
+		border: 1px solid rgba(255, 255, 255, 0.3);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -96,11 +91,11 @@ var(--color-secondary-500)
 				text-transform: uppercase;
 				font-size: var(--font-size-xs);
 				letter-spacing: 0.5px;
-				opacity: 0.85;
+				color: #ffffff;
 			}
 
 			.value {
-				opacity: 0.95;
+				color: #bdbdbd;
 				word-break: break-word;
 				font-size: var(--font-size-sm);
 			}
@@ -121,7 +116,7 @@ var(--color-secondary-500)
 
 				&-label {
 					font-size: var(--font-size-xs);
-					opacity: 0.85;
+					color: #bdbdbd;
 					text-transform: uppercase;
 					letter-spacing: 0.3px;
 				}
@@ -129,12 +124,9 @@ var(--color-secondary-500)
 				&-value {
 					font-size: var(--font-size-xl);
 					font-weight: var(--font-weight-bold);
+					color: #ffffff;
 
 					&.price {
-						background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.8));
-						-webkit-background-clip: text;
-						-webkit-text-fill-color: transparent;
-						background-clip: text;
 						font-size: var(--font-size-2xl);
 					}
 				}
@@ -146,9 +138,9 @@ var(--color-secondary-500)
 			align-items: center;
 			gap: var(--spacing-xs);
 			padding: var(--spacing-sm) var(--spacing-lg);
-			background: rgba(255, 255, 255, 0.2);
-			border: 1px solid rgba(255, 255, 255, 0.3);
-			color: white;
+			background: #ffffff;
+			border: 2px solid #ffffff;
+			color: #000000;
 			border-radius: var(--radius-lg);
 			font-weight: var(--font-weight-semibold);
 			cursor: pointer;
@@ -157,9 +149,9 @@ var(--color-secondary-500)
 			white-space: nowrap;
 
 			&:hover {
-				background: rgba(255, 255, 255, 0.3);
+				background: #000000;
+				color: #ffffff;
 				transform: translateY(-2px);
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 			}
 
 			&:active {
@@ -186,7 +178,7 @@ var(--color-secondary-500)
 
 		svg {
 			margin-bottom: var(--spacing-md);
-			opacity: 0.4;
+			opacity: 0.6;
 			color: white;
 			animation: pulse 2s ease-in-out infinite;
 		}
@@ -194,10 +186,10 @@ var(--color-secondary-500)
 		@keyframes pulse {
 			0%,
 			100% {
-				opacity: 0.4;
+				opacity: 0.6;
 			}
 			50% {
-				opacity: 0.6;
+				opacity: 0.8;
 			}
 		}
 
@@ -210,18 +202,18 @@ var(--color-secondary-500)
 		.hint {
 			display: block;
 			font-size: var(--font-size-sm);
-			opacity: 0.85;
+			color: #bdbdbd;
 			margin-bottom: var(--spacing-xs);
 		}
 
 		.hint-keyboard {
 			display: inline-block;
 			font-size: var(--font-size-xs);
-			opacity: 0.75;
+			color: #bdbdbd;
 			margin-top: var(--spacing-sm);
 
 			kbd {
-				background: rgba(255, 255, 255, 0.25);
+				background: rgba(255, 255, 255, 0.15);
 				padding: var(--spacing-xs) var(--spacing-sm);
 				border-radius: var(--radius-sm);
 				font-family: var(--font-family-mono);
@@ -276,22 +268,19 @@ var(--color-secondary-500)
 		border-radius: var(--radius-lg);
 		box-shadow: var(--shadow-md);
 		transition: all var(--transition-base);
-		border: 2px solid transparent;
+		border: 2px solid #e0e0e0;
 		overflow: hidden;
 
 		&:hover {
 			box-shadow: var(--shadow-lg);
 			transform: translateY(-4px);
+			border-color: #000000;
 		}
 
 		&.active {
-			border-color: var(--color-primary-500);
-			background: linear-gradient(
-135deg,
-rgba(102, 126, 234, 0.08),
-rgba(118, 75, 162, 0.08)
-);
-			box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+			border-color: #000000;
+			background: #fafafa;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 		}
 
 		label {
@@ -317,12 +306,8 @@ rgba(118, 75, 162, 0.08)
 				z-index: 1;
 
 				&:checked + .checkmark {
-					background: linear-gradient(
-135deg,
-var(--color-primary-500),
-var(--color-secondary-500)
-);
-					border-color: var(--color-primary-500);
+					background: #000000;
+					border-color: #000000;
 					transform: scale(1.1);
 
 					svg {
@@ -332,8 +317,8 @@ var(--color-secondary-500)
 				}
 
 				&:focus-visible + .checkmark {
-					box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
-					outline: 2px solid var(--color-primary-500);
+					box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+					outline: 2px solid #000000;
 					outline-offset: 2px;
 				}
 			}
@@ -341,7 +326,7 @@ var(--color-secondary-500)
 			.checkmark {
 				width: 24px;
 				height: 24px;
-				border: 2px solid var(--color-neutral-300);
+				border: 2px solid #e0e0e0;
 				border-radius: var(--radius-sm);
 				display: flex;
 				align-items: center;
@@ -372,14 +357,7 @@ var(--color-secondary-500)
 			.item-price {
 				font-size: var(--font-size-xl);
 				font-weight: var(--font-weight-bold);
-				background: linear-gradient(
-90deg,
-var(--color-primary-500),
-var(--color-secondary-500)
-);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				background-clip: text;
+				color: #000000;
 			}
 		}
 	}
@@ -387,9 +365,9 @@ var(--color-secondary-500)
 	.keyboard-hints {
 		margin-top: var(--spacing-lg);
 		padding: var(--spacing-md);
-		background: rgba(102, 126, 234, 0.05);
+		background: #fafafa;
 		border-radius: var(--radius-lg);
-		border: 1px dashed rgba(102, 126, 234, 0.2);
+		border: 1px solid #e0e0e0;
 
 		.hint-text {
 			margin: 0;
@@ -403,10 +381,11 @@ var(--color-secondary-500)
 				border-radius: var(--radius-sm);
 				font-family: var(--font-family-mono);
 				font-weight: var(--font-weight-semibold);
-				border: 1px solid var(--color-neutral-300);
+				border: 1px solid #e0e0e0;
 				box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-				color: var(--color-primary-500);
+				color: #000000;
 			}
 		}
 	}
 }
+

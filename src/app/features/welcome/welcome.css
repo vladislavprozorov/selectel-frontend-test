@@ -1,5 +1,6 @@
 /**
  * Стили страницы приветствия
+ * Монохромный дизайн в стиле Яндекс Практикум
  */
 :host {
 	display: block;
@@ -16,6 +17,7 @@
 		transform: translateY(0);
 	}
 }
+
 .welcome {
 	min-height: 100vh;
 	display: flex;
@@ -23,11 +25,7 @@
 	align-items: center;
 	justify-content: center;
 	padding: var(--spacing-xl);
-	background: linear-gradient(
-		135deg,
-		var(--color-primary-50) 0%,
-		var(--color-secondary-50) 100%
-	);
+	background: #000000;
 	gap: var(--spacing-4xl);
 }
 
@@ -40,26 +38,20 @@
 .welcome__icon {
 	font-size: 5rem;
 	margin-bottom: var(--spacing-lg);
+	color: #ffffff;
 	animation: bounce 1s ease-in-out infinite;
 }
 
 .welcome__title {
 	font-size: var(--font-size-5xl);
 	font-weight: var(--font-weight-bold);
-	background: linear-gradient(
-		135deg,
-		var(--color-primary-600),
-		var(--color-secondary-500)
-	);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
+	color: #ffffff;
 	margin-bottom: var(--spacing-lg);
 }
 
 .welcome__description {
 	font-size: var(--font-size-xl);
-	color: var(--color-text-secondary);
+	color: #bdbdbd;
 	margin-bottom: var(--spacing-2xl);
 	line-height: var(--line-height-relaxed);
 }
@@ -69,30 +61,21 @@
 	align-items: center;
 	gap: var(--spacing-sm);
 	padding: var(--spacing-md) var(--spacing-xl);
-	background: linear-gradient(
-		135deg,
-		var(--color-primary-500),
-		var(--color-primary-600)
-	);
-	color: white;
+	background: #000000;
+	color: #ffffff;
+	border: 2px solid #ffffff;
 	border-radius: var(--radius-lg);
 	font-size: var(--font-size-lg);
 	font-weight: var(--font-weight-semibold);
 	text-decoration: none;
-	box-shadow: var(--shadow-lg);
 	transition: all var(--transition-base);
-	border: none;
 	cursor: pointer;
 }
 
 .welcome__button:hover {
+	background: #ffffff;
+	color: #000000;
 	transform: translateY(-2px);
-	box-shadow: var(--shadow-xl);
-	background: linear-gradient(
-		135deg,
-		var(--color-primary-600),
-		var(--color-primary-700)
-	);
 }
 
 .welcome__button:active {
