@@ -1,1 +1,30 @@
-<p>menu works!</p>
+<section class="menu">
+  <header class="menu-header">
+    <h1>Меню услуг</h1>
+
+    @if (selectedCount() > 0) {
+      <div class="summary">
+        <p><strong>Выбрано:</strong> {{ selectedTitles() }}</p>
+        <p><strong>Количество:</strong> {{ selectedCount() }}</p>
+        <p><strong>Сумма:</strong> {{ totalPrice() }} ₽</p>
+      </div>
+    } @else {
+      <p>Ничего не выбрано</p>
+    }
+  </header>
+
+  <ul>
+    @for (item of items(); track item.id) {
+      <li [class.active]="item.selected">
+        <label>
+          <input
+            type="checkbox"
+            [checked]="item.selected"
+            (change)="toggleItem(item.id)"
+          />
+          {{ item.title }} — {{ item.price }} ₽
+        </label>
+      </li>
+    }
+  </ul>
+</section>
