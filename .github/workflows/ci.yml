@@ -106,7 +106,7 @@ jobs:
       - name: Upload artifact to Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/selectel-test/browser'
+          path: 'selectel-test/browser'
 
       - name: Deploy to GitHub Pages
         id: deployment
