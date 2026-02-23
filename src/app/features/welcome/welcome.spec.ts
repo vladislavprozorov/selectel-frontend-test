@@ -1,10 +1,12 @@
 import { type ComponentFixture, TestBed } from "@angular/core/testing";
+import { Title } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { Welcome } from "./welcome.component";
 
 describe("Welcome", () => {
 	let component: Welcome;
 	let fixture: ComponentFixture<Welcome>;
+	let titleService: Title;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
@@ -13,11 +15,18 @@ describe("Welcome", () => {
 
 		fixture = TestBed.createComponent(Welcome);
 		component = fixture.componentInstance;
+		titleService = TestBed.inject(Title);
 		fixture.detectChanges();
 	});
 
 	it("should create", () => {
 		expect(component).toBeTruthy();
+	});
+
+	it("should set page title", () => {
+		expect(titleService.getTitle()).toBe(
+			"Добро пожаловать | Selectel Frontend Test",
+		);
 	});
 
 	it("should display welcome title", () => {

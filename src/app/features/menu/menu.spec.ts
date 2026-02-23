@@ -1,10 +1,12 @@
 import { type ComponentFixture, TestBed } from "@angular/core/testing";
+import { Title } from "@angular/platform-browser";
 import { MENU_ITEMS } from "./data";
 import { MenuComponent } from "./menu.component";
 
 describe("MenuComponent", () => {
 	let component: MenuComponent;
 	let fixture: ComponentFixture<MenuComponent>;
+	let titleService: Title;
 	let localStorageMock: { [key: string]: string };
 
 	beforeEach(async () => {
@@ -35,6 +37,7 @@ describe("MenuComponent", () => {
 
 		fixture = TestBed.createComponent(MenuComponent);
 		component = fixture.componentInstance;
+		titleService = TestBed.inject(Title);
 		fixture.detectChanges();
 	});
 
@@ -45,6 +48,12 @@ describe("MenuComponent", () => {
 	describe("Component Initialization", () => {
 		it("should create", () => {
 			expect(component).toBeTruthy();
+		});
+
+		it("should set page title", () => {
+			expect(titleService.getTitle()).toBe(
+				"Меню услуг | Selectel Frontend Test",
+			);
 		});
 
 		it("should load initial menu items", () => {

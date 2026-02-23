@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
+import { Title } from "@angular/platform-browser";
 import { RouterLink } from "@angular/router";
 
 @Component({
@@ -8,4 +9,10 @@ import { RouterLink } from "@angular/router";
 	templateUrl: "./welcome.html",
 	styleUrl: "./welcome.css",
 })
-export class Welcome {}
+export class Welcome {
+	private readonly title = inject(Title);
+
+	constructor() {
+		this.title.setTitle("Добро пожаловать | Selectel Frontend Test");
+	}
+}
