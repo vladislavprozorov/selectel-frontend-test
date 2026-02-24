@@ -4,8 +4,10 @@ import {
 	computed,
 	effect,
 	HostListener,
+	inject,
 	signal,
 } from "@angular/core";
+import { Title } from "@angular/platform-browser";
 import { formatCurrency } from "@shared/utils";
 import { MENU_ITEMS } from "./data";
 import type { MenuItem } from "./models";
@@ -20,6 +22,8 @@ const STORAGE_KEY = "menu-selected-items";
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MenuComponent {
+	private readonly title = inject(Title);
+
 	readonly items = signal<MenuItem[]>(this.loadFromStorage());
 
 	readonly selectedCount = computed(
@@ -44,6 +48,8 @@ export class MenuComponent {
 	);
 
 	constructor() {
+		this.title.setTitle("Меню услуг | Selectel Frontend Test");
+
 		// Автосохранение в localStorage при изменении элементов
 		effect(() => {
 			const items = this.items();
